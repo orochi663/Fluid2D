@@ -1,0 +1,4 @@
+# User files
+*.user
+Makefile
+Log.txt
