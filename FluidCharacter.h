@@ -33,6 +33,12 @@ public:
 
     virtual void notify(cellar::CameraMsg &msg);
 
+    static const int WIDTH;
+    static const int HEIGHT;
+    static const int AREA;
+    static const int POINT_SIZE;
+
+
 protected:
     cellar::Vec4f initDye(float s, float t);
     cellar::Vec4f initVelocity(float s, float t);
@@ -51,12 +57,9 @@ protected:
     void frontier();
     void drawFluid();
 
+
 private:
     // Size
-    const int WIDTH;
-    const int HEIGHT;
-    const int AREA;
-    const int POINT_SIZE;
     const float DX;
     const float DT;
     const float VISCOSITY;

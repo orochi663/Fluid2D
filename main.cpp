@@ -1,6 +1,7 @@
 #include <Misc/Log.h>
 
 #include <ScaenaApplication/Application.h>
+#include <ScaenaApplication/GlMainWindow.h>
 #include <Stage/QGLStage.h>
 #include <Play/TrivialPlay.h>
 
@@ -20,6 +21,12 @@ int main(int argc, char** argv)
     stage->setDrawInterval(20);
     stage->setUpdateInterval(0);
     getApplication().addCustomStage(stage);
+
+    GlMainWindow window(stage);
+    window.setGlWindowSpace(FluidCharacter::WIDTH  * FluidCharacter::POINT_SIZE,
+                            FluidCharacter::HEIGHT * FluidCharacter::POINT_SIZE);
+    window.centerOnScreen();
+    window.show();
 
     shared_ptr<AbstractCharacter> character(new FluidCharacter(*stage));
     shared_ptr<AbstractPlay> play(new TrivialPlay("Fluid2D",character));

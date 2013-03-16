@@ -24,12 +24,14 @@ using namespace prop2;
 using namespace scaena;
 
 
+const int FluidCharacter::WIDTH = 256;
+const int FluidCharacter::HEIGHT = 256;
+const int FluidCharacter::AREA = WIDTH * HEIGHT;
+const int FluidCharacter::POINT_SIZE = 3;
+
+
 FluidCharacter::FluidCharacter(AbstractStage& stage) :
     AbstractCharacter(stage, "FluidCharacter"),
-    WIDTH(256),
-    HEIGHT(256),
-    AREA(WIDTH * HEIGHT),
-    POINT_SIZE(3),
     DX(1.0f),
     DT(1.0f),
     VISCOSITY(0.01f),
@@ -188,8 +190,6 @@ void FluidCharacter::enterStage()
     // End Stats Panel
 
     // Camera and stage size
-    stage().setSize(WIDTH*POINT_SIZE,
-                    HEIGHT*POINT_SIZE);
     stage().camera().setMode(Camera::EXPAND);
     stage().camera().setLens(Camera::Lens::ORTHOGRAPHIC,
                              0,  WIDTH*POINT_SIZE,
@@ -214,7 +214,7 @@ void FluidCharacter::enterStage()
     glGenTextures(1, &_tempDivTex);
 
     typedef float texComp_t;
-    typedef Vector4D<texComp_t> texVec_t;
+    typedef Vector<4, texComp_t> texVec_t;
     vector<texVec_t> dyeImg(AREA);
     vector<texVec_t> velocityImg(AREA);
     vector<texVec_t> pressureImg(AREA);
@@ -291,9 +291,9 @@ Vec4f FluidCharacter::initPressure(float s, float t)
 
 cellar::Vec4f FluidCharacter::initHeat(float s, float t)
 {
-    if(Vec2f(s, t).distanceTo(0.2, 0.8) < 0.08)
+    if((Vec2f(s, t) - Vec2f(0.2, 0.8)).length() < 0.08)
         return Vec4f(-5, 0, 0, 0);
-    if(Vec2f(s, t).distanceTo(0.5, 0.2) < 0.08)
+    if((Vec2f(s, t) - Vec2f(0.5, 0.2)).length() < 0.08)
         return Vec4f(5, 0, 0, 0);
     return Vec4f();
 }
