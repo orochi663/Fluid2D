@@ -11,7 +11,8 @@ using namespace std;
 using namespace cellar;
 using namespace scaena;
 
-int main(int argc, char** argv)
+
+int main(int argc, char** argv) try
 {
     getLog().setOuput(cout);
     getApplication().init(argc, argv);
@@ -33,4 +34,13 @@ int main(int argc, char** argv)
     getApplication().setPlay(play);
 
     return getApplication().execute(stage->id());
+}
+catch(exception& e)
+{
+    cerr << "Exception caught : " << e.what() << endl;
+}
+catch(...)
+{
+    cerr << "Exception passed threw.." << endl;
+    throw;
 }
