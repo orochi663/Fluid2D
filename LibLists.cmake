@@ -4,7 +4,6 @@ SET(QT_USE_QTOPENGL TRUE)
 INCLUDE(${QT_USE_FILE})
 
 SET(FLUID2D_LIBRARIES
-    GLEW
     ${QT_LIBRARIES}
     CellarWorkbench
     PropRoom2D
