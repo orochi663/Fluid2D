@@ -7,7 +7,6 @@ using namespace std;
 #include <GL3/gl3w.h>
 
 #include <Misc/CellarUtils.h>
-#include <Graphics/Image.h>
 #include <Algorithm/Noise.h>
 using namespace cellar;
 

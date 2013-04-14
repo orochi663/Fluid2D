@@ -4,7 +4,6 @@
 #include <memory>
 
 #include <DesignPattern/SpecificObserver.h>
-#include <Graphics/Image.h>
 #include <Graphics/Camera/Camera.h>
 #include <Graphics/Camera/CameraManFree.h>
 #include <Graphics/GL/GlProgram.h>
