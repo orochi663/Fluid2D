@@ -4,10 +4,10 @@
 #include <memory>
 
 #include <DesignPattern/SpecificObserver.h>
-#include <Graphics/Camera/Camera.h>
-#include <Graphics/Camera/CameraManFree.h>
-#include <Graphics/GL/GlProgram.h>
-#include <Graphics/GL/GlVao.h>
+#include <Camera/Camera.h>
+#include <Camera/CameraManFree.h>
+#include <GL/GlProgram.h>
+#include <GL/GlVao.h>
 
 #include <Hud/TextHud.h>
 #include <Hud/ImageHud.h>
@@ -15,7 +15,7 @@
 #include <Character/AbstractCharacter.h>
 
 class FluidCharacter : public scaena::AbstractCharacter,
-                       public cellar::SpecificObserver<cellar::CameraMsg>
+                       public cellar::SpecificObserver<media::CameraMsg>
 {
 public:
     FluidCharacter(scaena::AbstractStage& stage);
@@ -30,7 +30,7 @@ public:
     virtual bool keyPressEvent(const scaena::KeyboardEvent &event);
     virtual bool mouseMoveEvent(const scaena::MouseEvent &event);
 
-    virtual void notify(cellar::CameraMsg &msg);
+    virtual void notify(media::CameraMsg &msg);
 
     static const int WIDTH;
     static const int HEIGHT;
@@ -65,14 +65,14 @@ private:
     const float HEATDIFF;
 
     // Fluid simulation GL specific attributes
-    cellar::GlProgram _advectShader;
-    cellar::GlProgram _heatShader;
-    cellar::GlProgram _jacobiShader;
-    cellar::GlProgram _divergenceShader;
-    cellar::GlProgram _gradSubShader;
-    cellar::GlProgram _frontierShader;
-    cellar::GlProgram _drawShader;
-    cellar::GlVao _vao;
+    media::GlProgram _advectShader;
+    media::GlProgram _heatShader;
+    media::GlProgram _jacobiShader;
+    media::GlProgram _divergenceShader;
+    media::GlProgram _gradSubShader;
+    media::GlProgram _frontierShader;
+    media::GlProgram _drawShader;
+    media::GlVao _vao;
     const int DRAW_TEX;
     const int FETCH_TEX;
     unsigned int _dyeTex[2];

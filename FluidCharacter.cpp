@@ -10,6 +10,8 @@ using namespace std;
 #include <Algorithm/Noise.h>
 using namespace cellar;
 
+using namespace media;
+
 #include <PropTeam/AbstractPropTeam.h>
 using namespace prop2;
 
@@ -632,6 +634,6 @@ bool FluidCharacter::mouseMoveEvent(const scaena::MouseEvent &event)
     return true;
 }
 
-void FluidCharacter::notify(cellar::CameraMsg &)
+void FluidCharacter::notify(media::CameraMsg &)
 {
 }
