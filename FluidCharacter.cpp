@@ -172,8 +172,8 @@ void FluidCharacter::enterStage()
     _statsPanel->setSize(Vec2r(128, 64));
     _statsPanel->setImageName("resources/textures/statsPanel.bmp");
     _statsPanel->setHandlePosition(Vec2r(6.0, -70.0));
-    _statsPanel->setHorizontalAnchor(HorizontalAnchor::LEFT);
-    _statsPanel->setVerticalAnchor(VerticalAnchor::TOP);
+    _statsPanel->setHorizontalAnchor(EHorizontalAnchor::LEFT);
+    _statsPanel->setVerticalAnchor(EVerticalAnchor::TOP);
 
     _fps = stage().propTeam().createTextHud();
     _fps->setColor(Vec4r(0/255.0, 3/255.0, 80/255.0, 1.0));
@@ -191,8 +191,8 @@ void FluidCharacter::enterStage()
     // End Stats Panel
 
     // Camera and stage size
-    stage().camera().setMode(Camera::EXPAND);
-    stage().camera().setLens(Camera::Lens::ORTHOGRAPHIC,
+    stage().camera().setMode(Camera::EMode::EXPAND);
+    stage().camera().setLens(Camera::Lens::EType::ORTHOGRAPHIC,
                              0,  WIDTH*POINT_SIZE,
                              0,  HEIGHT*POINT_SIZE,
                              -1, 1);
